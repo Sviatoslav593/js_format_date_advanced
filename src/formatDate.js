@@ -48,8 +48,12 @@ function formatDate(date, fromFormat, toFormat) {
     }
   }
 
-  for (const key in newDateObj) {
-    newDateArr.push(newDateObj[key]);
+  for (let i = 0; i < toFormat.length - 1; i++) {
+    for (const key in newDateObj) {
+      if (toFormat[i] === key) {
+        newDateArr.push(newDateObj[key]);
+      }
+    }
   }
 
   return newDateArr.join(toFormat[toFormat.length - 1]);
